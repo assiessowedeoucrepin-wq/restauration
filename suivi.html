@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chez Maman - Suivi de Commande</title>
+    <!-- Feuille de style CSS globale -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- BARRE DE NAVIGATION -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">🥘 Chez Maman</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="panier.html">🛒 Panier (<span id="cart-count">0</span>)</a></li>
+                <li><a href="suivi.html" class="active">Suivi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTENU PRINCIPAL DU SUIVI -->
+    <main class="container">
+        <h1 class="page-title">Suivi de Votre Commande</h1>
+
+        <div class="tracker-box">
+            <!-- Les détails de la commande seront injectés ici par JavaScript -->
+            <div id="tracking-info">
+                <!-- Chargé dynamiquement via js/main.js -->
+            </div>
+
+            <!-- Barre de progression du statut -->
+            <div class="status-steps">
+                <div class="step active">
+                    <span class="step-icon">📝</span>
+                    <p>1. Reçue</p>
+                </div>
+                <div class="step active">
+                    <span class="step-icon">🍳</span>
+                    <p>2. En préparation</p>
+                </div>
+                <div class="step">
+                    <span class="step-icon">🛵</span>
+                    <p>3. En livraison</p>
+                </div>
+                <div class="step">
+                    <span class="step-icon">✅</span>
+                    <p>4. Livrée</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- PIED DE PAGE -->
+    <footer>
+        <p>&copy; 2026 Chez Maman. Tous droits réservés.</p>
+        <p>Commandes & Renseignements : +228 90 00 00 00</p>
+    </footer>
+
+    <!-- Script JavaScript principal -->
+    <script src="js/main.js"></script>
+</body>
+</html>

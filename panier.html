@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chez Maman - Votre Panier & Commande</title>
+    <!-- Feuille de style CSS globale -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- BARRE DE NAVIGATION -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">🥘 Chez Maman</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="panier.html" class="active">🛒 Panier (<span id="cart-count">0</span>)</a></li>
+                <li><a href="suivi.html">Suivi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTENU PRINCIPAL DU PANIER -->
+    <main class="container">
+        <h1 class="page-title">Votre Panier & Validation</h1>
+
+        <div class="cart-layout">
+            
+            <!-- Tableau des Articles Commandés -->
+            <div class="cart-details">
+                <h2>Récapitulatif de la commande</h2>
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Plat</th>
+                            <th>Prix Unitaire</th>
+                            <th>Quantité</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                        <!-- Ce contenu sera généré dynamiquement par JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Formulaire de Livraison & Paiement -->
+            <div class="checkout-box">
+                <h2>Informations de Livraison</h2>
+                <hr style="margin: 1rem 0; border: none; border-top: 1px solid #ddd;">
+                
+                <p style="margin-bottom: 1.5rem; font-size: 1.2rem;">
+                    <strong>Total à payer : </strong>
+                    <span id="total-price" class="price">0 FCFA</span>
+                </p>
+
+                <form onsubmit="passerCommande(event)">
+                    <div class="form-group">
+                        <label for="client-name">Nom complet *</label>
+                        <input type="text" id="client-name" required placeholder="Ex: Jean Dupont">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="client-phone">Téléphone (WhatsApp de préférence) *</label>
+                        <input type="tel" id="client-phone" required placeholder="Ex: +228 90 00 00 00">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="client-address">Adresse exacte / Indications de livraison *</label>
+                        <textarea id="client-address" rows="3" required placeholder="Quartier, numéro de maison, repères visuels..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="payment-method">Mode de Paiement *</label>
+                        <select id="payment-method" required>
+                            <option value="cash">Paiement en espèces à la livraison</option>
+                            <option value="flooz">Flooz / T-Money</option>
+                            <option value="card">Carte Bancaire</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">
+                        Confirmer la commande
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- PIED DE PAGE -->
+    <footer>
+        <p>&copy; 2026 Chez Maman. Tous droits réservés.</p>
+        <p>Commandes & Renseignements : +228 90 00 00 00</p>
+    </footer>
+
+    <!-- Script JavaScript principal -->
+    <script src="js/main.js"></script>
+</body>
+</html>

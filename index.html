@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chez Maman - Restaurant & Livraison</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- En-tête / Barre de Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">🥘 Chez Maman</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="panier.html">🛒 Panier (<span id="cart-count">0</span>)</a></li>
+                <li><a href="suivi.html">Suivi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Bannière Principale (Hero Section) -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>La bonne cuisine fait maison, livrée directement chez vous !</h1>
+            <p>Découvrez nos plats traditionnels préparés avec soin et recevez votre commande bien chaude.</p>
+            <div class="hero-buttons">
+                <a href="menu.html" class="btn-primary">Voir le Menu & Commander</a>
+                <a href="#horaires" class="btn-secondary">Horaires & Infos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Plats Vedettes -->
+    <section id="specialites" class="features">
+        <h2>Nos Spécialités En Vedette</h2>
+        <div class="grid-cards">
+            
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-body">
+                    <h3>Poulet Braisé & Alloco</h3>
+                    <p>Poulet assaisonné aux épices maison, servi avec bananes alloco frites et piment vert.</p>
+                    <div class="card-footer">
+                        <span class="price">3 500 FCFA</span>
+                        <button class="btn-add" onclick="ajouterAuPanier('Poulet Braisé & Alloco', 3500)">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-body">
+                    <h3>Riz au Gras Royal</h3>
+                    <p>Riz parfumé mijoté dans une sauce tomate riche avec viande de bœuf et légumes frais.</p>
+                    <div class="card-footer">
+                        <span class="price">3 000 FCFA</span>
+                        <button class="btn-add" onclick="ajouterAuPanier('Riz au Gras Royal', 3000)">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-body">
+                    <h3>Jus de Bissap Maison</h3>
+                    <p>Infusion d'hibiscus rafraîchissante parfumée à la menthe et aux clous de girofle.</p>
+                    <div class="card-footer">
+                        <span class="price">1 000 FCFA</span>
+                        <button class="btn-add" onclick="ajouterAuPanier('Jus de Bissap Maison', 1000)">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section Horaires & Infos -->
+    <section id="horaires" class="info-section">
+        <h2>Horaires & Zones de Livraison</h2>
+        <div class="info-grid">
+            <div class="info-box">
+                🕒 <h3>Heures d'ouverture</h3>
+                <p>Du Lundi au Samedi : 11h00 - 22h00<br>Dimanche : 12h00 - 20h00</p>
+            </div>
+            <div class="info-box">
+                🛵 <h3>Zone de Livraison</h3>
+                <p>Livraison rapide dans un rayon de 10 km autour du restaurant.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de Page -->
+    <footer>
+        <p>&copy; 2026 Chez Maman. Tous droits réservés.</p>
+        <p>Commandes & Renseignements : +228 90 00 00 00</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

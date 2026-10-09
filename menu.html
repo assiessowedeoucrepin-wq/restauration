@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chez Maman - Notre Menu</title>
+    <!-- Feuille de style CSS globale -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- BARRE DE NAVIGATION -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">🥘 Chez Maman</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="panier.html">🛒 Panier (<span id="cart-count">0</span>)</a></li>
+                <li><a href="suivi.html">Suivi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTENU PRINCIPAL DU MENU -->
+    <main class="container">
+        <h1 class="page-title">Découvrez Notre Carte</h1>
+
+        <!-- Filtres par Catégories -->
+        <div class="filters">
+            <button class="filter-btn active" onclick="filtrerMenu('tous')">Tous les plats</button>
+            <button class="filter-btn" onclick="filtrerMenu('plats')">Plats Principaux</button>
+            <button class="filter-btn" onclick="filtrerMenu('accompagnements')">Accompagnements</button>
+            <button class="filter-btn" onclick="filtrerMenu('boissons')">Boissons</button>
+        </div>
+
+        <!-- Grille des Plats -->
+        <div class="grid-cards">
+
+            <!-- Plat 1 : Plats Principaux -->
+            <div class="card" data-category="plats">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-body">
+                    <h3>Poulet Braisé & Alloco</h3>
+                    <p>Poulet tendre mariné aux épices locales, servi avec bananes alloco frites et piment maison.</p>
+                    <div class="card-footer">
+                        <span class="price">3 500 FCFA</span>
+                        <button class="btn-add" onclick="ajouterAuPanier('Poulet Braisé & Alloco', 3500)">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plat 2 : Plats Principaux -->
+            <div class="card" data-category="plats">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-body">
+                    <h3>Riz au Gras Royal</h3>
+                    <p>Riz parfumé mijoté dans une sauce tomate riche garni de viande de bœuf et légumes fraichement coupés.</p>
+                    <div class="card-footer">
+                        <span class="price">3 000 FCFA</span>
+                        <button class="btn-add" onclick="ajouterAuPanier('Riz au Gras Royal', 3000)">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plat 3 : Accompagnements -->
+            <div class="card" data-category="accompagnements">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-body">
+                    <h3>Portion d'Alloco Supplémentaire</h3>
+                    <p>Bananes plantains mûres frites dorées à souhait.</p>
+                    <div class="card-footer">
+                        <span class="price">1 000 FCFA</span>
+                        <button class="btn-add" onclick="ajouterAuPanier('Portion Alloco', 1000)">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plat 4 : Boissons -->
+            <div class="card" data-category="boissons">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-body">
+                    <h3>Jus de Bissap Maison (1L)</h3>
+                    <p>Infusion d'hibiscus rafraîchissante parfumée à la menthe et clous de girofle.</p>
+                    <div class="card-footer">
+                        <span class="price">1 000 FCFA</span>
+                        <button class="btn-add" onclick="ajouterAuPanier('Jus de Bissap Maison', 1000)">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plat 5 : Boissons -->
+            <div class="card" data-category="boissons">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-body">
+                    <h3>Jus de Gnamakoudji (Gingembre)</h3>
+                    <p>Jus de gingembre naturel bien épicé et énergisant.</p>
+                    <div class="card-footer">
+                        <span class="price">1 000 FCFA</span>
+                        <button class="btn-add" onclick="ajouterAuPanier('Jus de Gnamakoudji', 1000)">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- PIED DE PAGE -->
+    <footer>
+        <p>&
