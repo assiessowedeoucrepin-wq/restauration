@@ -389,3 +389,75 @@ footer p {
     font-size: 0.95rem;
     color: #bbb;
 }
+/* --- AMÉLIORATIONS RESPONSIVES AVANCÉES --- */
+
+/* Pour les tablettes et petits écrans (max 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 4rem 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+        margin: 1rem auto;
+    }
+
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+
+    /* Rendre le tableau du panier défilant horizontalement si l'écran est trop petit */
+    .cart-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* Pour les téléphones portables étroits (max 480px) */
+@media (max-width: 480px) {
+    .logo a {
+        font-size: 1.3rem;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .checkout-box, .cart-details {
+        padding: 1rem;
+    }
+}
