@@ -106,8 +106,8 @@ function passerCommande(event) {
     let detailsArticles = panier.map(item => `- ${item.quantite}x ${item.nom} (${(item.prix * item.quantite).toLocaleString()} FCFA)`).join('%0A');
 
     // Votre numéro WhatsApp professionnel (remplacez par votre numéro au format international sans le +)
-    // Exemple pour le Togo (+228) : 22890000000
-    const numeroWhatsApp = "22890000000"; 
+    // Exemple pour le Togo (+228) : 22893213229
+    const numeroWhatsApp = "22893213229"; 
 
     // Création du message pré-rempli
     let messageWhatsApp = `*Nouvelle Commande - Chez Maman*%0A%0A` +
