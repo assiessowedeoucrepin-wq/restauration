@@ -19,7 +19,6 @@ function ajouterAuPanier(nom, prix) {
         panier.push({ nom: nom, prix: prix, quantite: 1 });
     }
     
-    // Sauvegarder dans le localStorage
     localStorage.setItem('panierChezMaman', JSON.stringify(panier));
     mettreAJourCompteur();
     
@@ -99,17 +98,12 @@ function passerCommande(event) {
     const adresse = document.getElementById('client-address').value;
     const paiement = document.getElementById('payment-method').value;
 
-    // Calculer le total
     let totalGlobal = panier.reduce((sum, item) => sum + (item.prix * item.quantite), 0);
-
-    // Formater la liste des articles pour le message
     let detailsArticles = panier.map(item => `- ${item.quantite}x ${item.nom} (${(item.prix * item.quantite).toLocaleString()} FCFA)`).join('%0A');
 
-    // Votre numéro WhatsApp professionnel (remplacez par votre numéro au format international sans le +)
-    // Exemple pour le Togo (+228) : 22893213229
+    // Votre nouveau numéro WhatsApp configuré
     const numeroWhatsApp = "22893213229"; 
 
-    // Création du message pré-rempli
     let messageWhatsApp = `*Nouvelle Commande - Chez Maman*%0A%0A` +
         `*Client :* ${nom}%0A` +
         `*Téléphone :* ${telephone}%0A` +
@@ -128,17 +122,12 @@ function passerCommande(event) {
         date: new Date().toLocaleString()
     };
 
-    // Sauvegarder pour la page de suivi
     localStorage.setItem('derniereCommandeChezMaman', JSON.stringify(commandeData));
     
-    // Vider le panier
     panier = [];
     localStorage.removeItem('panierChezMaman');
 
-    // Rediriger vers WhatsApp
     window.open(`https://wa.me/${numeroWhatsApp}?text=${messageWhatsApp}`, '_blank');
-
-    // Rediriger ensuite vers la page de suivi
     window.location.href = 'suivi.html';
 }
 
@@ -171,7 +160,6 @@ function afficherSuivi() {
     `;
 }
 
-// Initialisation automatique au chargement de chaque page
 document.addEventListener('DOMContentLoaded', () => {
     mettreAJourCompteur();
     afficherPanier();
