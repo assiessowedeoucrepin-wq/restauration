@@ -85,7 +85,7 @@ function supprimerArticle(index) {
     mettreAJourCompteur();
 }
 
-// Passer la commande
+// Passer la commande et l'envoyer sur WhatsApp
 function passerCommande(event) {
     event.preventDefault();
     
@@ -99,23 +99,46 @@ function passerCommande(event) {
     const adresse = document.getElementById('client-address').value;
     const paiement = document.getElementById('payment-method').value;
 
+    // Calculer le total
+    let totalGlobal = panier.reduce((sum, item) => sum + (item.prix * item.quantite), 0);
+
+    // Formater la liste des articles pour le message
+    let detailsArticles = panier.map(item => `- ${item.quantite}x ${item.nom} (${(item.prix * item.quantite).toLocaleString()} FCFA)`).join('%0A');
+
+    // Votre numéro WhatsApp professionnel (remplacez par votre numéro au format international sans le +)
+    // Exemple pour le Togo (+228) : 22890000000
+    const numeroWhatsApp = "22890000000"; 
+
+    // Création du message pré-rempli
+    let messageWhatsApp = `*Nouvelle Commande - Chez Maman*%0A%0A` +
+        `*Client :* ${nom}%0A` +
+        `*Téléphone :* ${telephone}%0A` +
+        `*Adresse :* ${adresse}%0A` +
+        `*Paiement :* ${paiement}%0A%0A` +
+        `*Détails de la commande :*%0A${detailsArticles}%0A%0A` +
+        `*Total à payer :* ${totalGlobal.toLocaleString()} FCFA`;
+
     const commandeData = {
         nom,
         telephone,
         adresse,
         paiement,
         articles: panier,
+        total: totalGlobal,
         date: new Date().toLocaleString()
     };
 
-    // Sauvegarder la dernière commande pour la page de suivi
+    // Sauvegarder pour la page de suivi
     localStorage.setItem('derniereCommandeChezMaman', JSON.stringify(commandeData));
     
     // Vider le panier
     panier = [];
     localStorage.removeItem('panierChezMaman');
 
-    alert("Commande validée avec succès ! Redirection vers le suivi...");
+    // Rediriger vers WhatsApp
+    window.open(`https://wa.me/${numeroWhatsApp}?text=${messageWhatsApp}`, '_blank');
+
+    // Rediriger ensuite vers la page de suivi
     window.location.href = 'suivi.html';
 }
 
@@ -131,7 +154,7 @@ function afficherSuivi() {
         return;
     }
 
-    let listeArticles = derniereCommande.articles.map(a => `<li>${a.quantite}x ${a.nom}</li>`).join('');
+    let listeArticles = derniereCommande.articles.map(a => `<li>${a.quantite}x ${a.nom} (${(a.prix * a.quantite).toLocaleString()} FCFA)</li>`).join('');
 
     trackingInfo.innerHTML = `
         <div style="background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 2rem;">
@@ -139,9 +162,11 @@ function afficherSuivi() {
             <p><strong>Client :</strong> ${derniereCommande.nom}</p>
             <p><strong>Téléphone :</strong> ${derniereCommande.telephone}</p>
             <p><strong>Adresse :</strong> ${derniereCommande.adresse}</p>
+            <p><strong>Mode de paiement :</strong> ${derniereCommande.paiement}</p>
             <p><strong>Date :</strong> ${derniereCommande.date}</p>
             <h4 style="margin-top: 1rem;">Articles :</h4>
             <ul style="padding-left: 20px;">${listeArticles}</ul>
+            <p style="margin-top: 1rem; font-size: 1.1rem; color: #e65100;"><strong>Total : ${derniereCommande.total.toLocaleString()} FCFA</strong></p>
         </div>
     `;
 }
