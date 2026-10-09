@@ -10,6 +10,26 @@ function mettreAJourCompteur() {
     }
 }
 
+// Filtrer le menu par catégorie (Plats, Accompagnements, Desserts, Boissons)
+function filtrerMenu(categorie) {
+    const cartes = document.querySelectorAll('.grid-cards .card');
+    const boutons = document.querySelectorAll('.filter-btn');
+
+    // Activer visuellement le bouton sélectionné
+    boutons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    // Afficher ou masquer les cartes selon la catégorie
+    cartes.forEach(carte => {
+        const catCard = carte.getAttribute('data-category');
+        if (categorie === 'tous' || catCard === categorie) {
+            carte.style.display = 'flex';
+        } else {
+            carte.style.display = 'none';
+        }
+    });
+}
+
 // Ajouter un produit au panier
 function ajouterAuPanier(nom, prix) {
     const produitExistant = panier.find(item => item.nom === nom);
@@ -101,7 +121,6 @@ function passerCommande(event) {
     let totalGlobal = panier.reduce((sum, item) => sum + (item.prix * item.quantite), 0);
     let detailsArticles = panier.map(item => `- ${item.quantite}x ${item.nom} (${(item.prix * item.quantite).toLocaleString()} FCFA)`).join('%0A');
 
-    // Votre nouveau numéro WhatsApp configuré
     const numeroWhatsApp = "22893213229"; 
 
     let messageWhatsApp = `*Nouvelle Commande - Chez Maman*%0A%0A` +
@@ -145,12 +164,13 @@ function afficherSuivi() {
 
     let listeArticles = derniereCommande.articles.map(a => `<li>${a.quantite}x ${a.nom} (${(a.prix * a.quantite).toLocaleString()} FCFA)</li>`).join('');
 
+    trackingInfo.html = '';
     trackingInfo.innerHTML = `
         <div style="background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 2rem;">
             <h3>Détails de votre commande</h3>
             <p><strong>Client :</strong> ${derniereCommande.nom}</p>
             <p><strong>Téléphone :</strong> ${derniereCommande.telephone}</p>
-            <p><strong>Adresse :</strong> ${derniereCommande.adresse}</p>
+            <p><strong>Adresse :</strong> ${derni_adresse = derniereCommande.adresse}</p>
             <p><strong>Mode de paiement :</strong> ${derniereCommande.paiement}</p>
             <p><strong>Date :</strong> ${derniereCommande.date}</p>
             <h4 style="margin-top: 1rem;">Articles :</h4>

@@ -28,11 +28,12 @@
     <main class="container">
         <h1 class="page-title">Découvrez Notre Carte</h1>
 
-        <!-- Filtres par Catégories -->
+        <!-- Filtres par Catégories mis à jour -->
         <div class="filters">
             <button class="filter-btn active" onclick="filtrerMenu('tous')">Tous les plats</button>
             <button class="filter-btn" onclick="filtrerMenu('plats')">Plats Principaux</button>
             <button class="filter-btn" onclick="filtrerMenu('accompagnements')">Accompagnements</button>
+            <button class="filter-btn" onclick="filtrerMenu('desserts')">Desserts</button>
             <button class="filter-btn" onclick="filtrerMenu('boissons')">Boissons</button>
         </div>
 
@@ -57,7 +58,7 @@
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="card-body">
                     <h3>Riz au Gras Royal</h3>
-                    <p>Riz parfumé mijoté dans une sauce tomate riche garni de viande de bœuf et légumes fraichement coupés.</p>
+                    <p>Riz parfumé mijoté dans une sauce tomate riche garni de viande de bœuf et légumes frais.</p>
                     <div class="card-footer">
                         <span class="price">3 000 FCFA</span>
                         <button class="btn-add" onclick="ajouterAuPanier('Riz au Gras Royal', 3000)">Ajouter au panier</button>
@@ -78,7 +79,33 @@
                 </div>
             </div>
 
-            <!-- Plat 4 : Boissons -->
+            <!-- Plat 4 : Desserts -->
+            <div class="card" data-category="desserts">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-body">
+                    <h3>Délices de Degue (Yahourt au Mil)</h3>
+                    <p>Douceur traditionnelle à base de couscous de mil et de yaourt onctueux parfumé.</p>
+                    <div class="card-footer">
+                        <span class="price">1 500 FCFA</span>
+                        <button class="btn-add" onclick="ajouterAuPanier('Délices de Degue', 1500)">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plat 5 : Desserts -->
+            <div class="card" data-category="desserts">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-body">
+                    <h3>Salade de Fruits Frais</h3>
+                    <p>Assortiment de fruits tropicaux de saison bien frais.</p>
+                    <div class="card-footer">
+                        <span class="price">1 200 FCFA</span>
+                        <button class="btn-add" onclick="ajouterAuPanier('Salade de Fruits Frais', 1200)">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plat 6 : Boissons -->
             <div class="card" data-category="boissons">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="card-body">
@@ -87,19 +114,6 @@
                     <div class="card-footer">
                         <span class="price">1 000 FCFA</span>
                         <button class="btn-add" onclick="ajouterAuPanier('Jus de Bissap Maison', 1000)">Ajouter au panier</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plat 5 : Boissons -->
-            <div class="card" data-category="boissons">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=500&q=80');"></div>
-                <div class="card-body">
-                    <h3>Jus de Gnamakoudji (Gingembre)</h3>
-                    <p>Jus de gingembre naturel bien épicé et énergisant.</p>
-                    <div class="card-footer">
-                        <span class="price">1 000 FCFA</span>
-                        <button class="btn-add" onclick="ajouterAuPanier('Jus de Gnamakoudji', 1000)">Ajouter au panier</button>
                     </div>
                 </div>
             </div>
@@ -117,4 +131,3 @@
     <script src="js/main.js"></script>
 </body>
 </html>
-```[cite: 4]
